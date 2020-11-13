@@ -3,9 +3,13 @@ import { Line } from "react-chartjs-2";
 import {MDBContainer} from "mdbreact";
 
 class ChartComponent extends React.Component {
+    constructor(props) {
+        super(props);
+
+    }
     state = {
         dataLine: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: [...this.props.labels],
             datasets: [
                 {
                     label: "My First dataset",
@@ -26,13 +30,14 @@ class ChartComponent extends React.Component {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    data:[ ...this.props.data]
                 }
             ]
         }
     };
 
     render() {
+        debugger
         return (
             <MDBContainer>
                 <h3 className="mt-5">Line chart</h3>

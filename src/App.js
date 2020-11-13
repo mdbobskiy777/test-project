@@ -5,8 +5,8 @@ import MainPage from "./components/MainPage/MainPage";
 import Footer from "./components/Footer/Footer";
 import {Switch} from "react-router";
 import {Route} from "react-router";
-import UserStatistic from "./components/UserStatictic/UserStatistic";
-import UserPage from "./components/UserPage/UserPage";
+import UsersStatisticContainer from "./components/UsersStatictic/UsersStatisticContainer";
+import UserPageContainer from "./components/UserPage/UserPageContainer";
 
 function App() {
     return (
@@ -16,8 +16,8 @@ function App() {
                 <Route exact path={"/"} render={() => <MainPage/>
                 }/>
                 <Route path={"/mainPage"} render={() => <MainPage/>}/>
-                <Route path={"/userStatistic"} render={() => <UserStatistic/>}/>
-                <Route path={"/user/:id?"} render={() => <UserPage/>}/>
+                <Route path={"/userStatistic"} render={() => <UsersStatisticContainer/>}/>
+                <Route path={"/user/:id?"} render={() => <UserPageContainer/>}/>
                 <Route path={'*'} render={() => <div>404 NOT FOUND</div>}/>
             </Switch>
             <Footer/>

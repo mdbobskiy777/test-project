@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import s from "./pagination.module.css";
 
-let Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
-
+let Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 5}) => {
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
