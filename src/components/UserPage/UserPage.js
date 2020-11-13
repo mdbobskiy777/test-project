@@ -1,9 +1,7 @@
-import NavigationComponent from "../UsersStatictic/NavigationComponent";
+import NavigationComponent from "../UsersStatistic/NavigationComponent";
 import ChartComponent from "./ChartComponent";
 
 const UserPage = (props) => {
-    debugger
-
     return <div>
         <div><h1>Eugene Bober</h1></div>
         <NavigationComponent navItems={[]}/>

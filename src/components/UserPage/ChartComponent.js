@@ -37,7 +37,6 @@ class ChartComponent extends React.Component {
     };
 
     render() {
-        debugger
         return (
             <MDBContainer>
                 <h3 className="mt-5">Line chart</h3>
