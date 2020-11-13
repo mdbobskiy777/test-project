@@ -1,0 +1,8 @@
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+.subscribeContent{
+    text-align: center;
+    padding: 10px;
+}

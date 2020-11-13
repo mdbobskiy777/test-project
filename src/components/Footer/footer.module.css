@@ -1,0 +1,9 @@
+.content {
+    background-color: #3A80BA;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 10px 100px;
+}
+.content div {
+    color: white;
+}
