@@ -34,8 +34,7 @@ app.get('/user',
         console.log(request.query.id);
         console.log(request.query.from);
         console.log(request.query.to);
-        const user = db.prepare(`SELECT users.first_name,
-         users.last_name FROM users WHERE id =${request.query.id}`).all()
+        const user = db.prepare(`SELECT users.first_name + ' ' + users.last_name FROM users WHERE id =${request.query.id}`).all()
         const fullName = Object.values(user[0]).join(' ')
         console.log(fullName)
         const row = db.prepare(`SELECT users_statistics.page_views, 
