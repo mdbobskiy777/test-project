@@ -5,16 +5,16 @@ const instance = axios.create({
     baseURL: 'http://localhost:3001/',
 });
 export const userAPI = {
-    getUsers() {
-        return instance.get(`users`)
+    getUsers(currentPage, pageSize) {
+        return instance.get(`users?currentPage=${currentPage}&count=${pageSize}`)
             .then(response => {
-                return response.data.users;
+                return response.data;
             });
     },
-    getUser() {
-        return instance.get(`user`)
+    getUser(userId) {
+        return instance.get(`user?id=${userId}`)
             .then(response => {
-                return response.data.user;
+                return response.data;
             });
     }
 }

@@ -6,13 +6,13 @@ import s from "./userStatistic.module.css"
 
 const UsersStatistic = (props) => {
     return <div>
-        <NavigationComponent navItems={[]}/>
         <UsersTable users={props.users}/>
         <div className={s.pagination}>
             <Pagination totalItemsCount={props.totalUsersCount}
                         pageSize={props.pageSize}
                         onPageChanged={props.onPageChanged}
-                        currentPage={props.currentPage}/>
+                        currentPage={props.currentPage}
+                        portionSize = {5}/>
         </div>
     </div>
 }

@@ -3,12 +3,14 @@ import ChartComponent from "./ChartComponent";
 
 const UserPage = (props) => {
     return <div>
-        <div><h1>Eugene Bober</h1></div>
-        <NavigationComponent navItems={[]}/>
+        <div><h1>{props.fullName}</h1></div>
         <ChartComponent labels={props.chartsData.labels}
-                        data={props.chartsData.clicks}/>
+                        data={props.chartsData.clicks}
+                        label={"clicks"}/>
         <ChartComponent labels={props.chartsData.labels}
-                        data={props.chartsData.page_views}/>
+                        data={props.chartsData.page_views}
+                        label={"views"}
+        />
     </div>
 }
 

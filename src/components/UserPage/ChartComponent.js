@@ -39,7 +39,7 @@ class ChartComponent extends React.Component {
     render() {
         return (
             <MDBContainer>
-                <h3 className="mt-5">Line chart</h3>
+                <h3 className="mt-5">{this.props.label}</h3>
                 <Line data={this.state.dataLine} options={{ responsive: true }} />
             </MDBContainer>
         );

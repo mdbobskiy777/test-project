@@ -71,40 +71,26 @@ db.all(sql1, [], (err, rows) => {
 });*/
 app.get('/users',
     (request, response) => {
-      /*  var users = [];
-        let sql = 'SELECT users.id, users.first_name,users.last_name, users.email, users.gender, users.ip_address, users_statistics.page_views, users_statistics.clicks FROM users INNER JOIN users_statistics ON users.id = users_statistics.user_id WHERE id <2'
-        const result =  db.all(sql, [], (err, rows) => {
-            if (err) {
-                throw err;
-            }
-            users = [...rows]
-            console.log(users[0]);
+        console.log(request.query.currentPage);
+        console.log(request.query.count);
+        const leftValue = (request.query.currentPage-1)*request.query.count+1
+        const rightValue = request.query.currentPage*request.query.count
+        const totalUsersInfo = db.prepare('SELECT COUNT (*) FROM users')
+        const totalUsersCount = totalUsersInfo.all()[0]['COUNT (*)']
 
-            /!*
-                rows.forEach((row) => {
-                    console.log(row);
-                });*!/
-        });
-        console.log(users[0]);
-        console.log(" get users");*/
-        const row = db.prepare('SELECT users.id, users.first_name,users.last_name, users.email, users.gender, users.ip_address, users_statistics.page_views, users_statistics.clicks FROM users INNER JOIN users_statistics ON users.id = users_statistics.user_id WHERE id < 2')
-        const responce = row.all();
-/*
-        console.log(responce);
-*/
-        response.send({users: responce})
-        // db.close((err) => {
-        //     if (err) {
-        //         console.log(err.message)
-        //     }
-        //     console.log("connection closed")
-        // })
+        const users = db.prepare(`SELECT users.id, users.first_name,users.last_name, users.email, users.gender, users.ip_address, users_statistics.page_views, users_statistics.clicks FROM users INNER JOIN users_statistics ON users.id = users_statistics.user_id WHERE id <=${rightValue} AND id >=${leftValue}  GROUP BY users.id`)
+        const res = users.all();
+        response.send({users: res, totalUsersCount:totalUsersCount})
     })
-/*app.get('/user',
+app.get('/user',
     (request, response) => {
-        console.log(user[0]);
-        console.log(" get user");
-        response.send({user: user})
-    })*/
+        console.log(request.query.id);
+        const user = db.prepare(`SELECT users.first_name, users.last_name FROM users WHERE id =${request.query.id}`).all()
+        const fullName = Object.values(user[0]).join(' ')
+        console.log(fullName)
+        const row = db.prepare(`SELECT users_statistics.page_views, users_statistics.clicks, users_statistics.date FROM users INNER JOIN users_statistics ON users.id = users_statistics.user_id WHERE id =${request.query.id}`)
+        const responce = row.all();
+        response.send({user: responce, fullName:fullName})
+    })
 
 app.listen(3001);

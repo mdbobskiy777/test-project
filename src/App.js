@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import {Switch} from "react-router";
 import {Route} from "react-router";
 import UsersStatisticContainer from "./components/UsersStatistic/UsersStatisticContainer";
+import NavigationComponent from "./components/UsersStatistic/NavigationComponent";
 const UserPageContainer = React.lazy(() => import("./components/UserPage/UserPageContainer"));
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <div>
             <Suspense fallback={<div>loading...</div>}>
             <Header/>
+            <NavigationComponent/>
             <Switch>
                 <Route exact path={"/"} render={() => <MainPage/>
                 }/>
