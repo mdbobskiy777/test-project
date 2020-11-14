@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import {Switch} from "react-router";
 import {Route} from "react-router";
 import UsersStatisticContainer from "./components/UsersStatistic/UsersStatisticContainer";
-import NavigationComponent from "./components/UsersStatistic/NavigationComponent";
+import NavigationComponent from "./components/NavigationComponent/NavigationComponent";
 const UserPageContainer = React.lazy(() => import("./components/UserPage/UserPageContainer"));
 
 function App() {

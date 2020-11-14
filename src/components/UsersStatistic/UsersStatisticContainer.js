@@ -9,9 +9,7 @@ import UsersStatistic from "./UsersStatistic";
 const UsersStatisticContainer = (props) => {
     useEffect(() => {
         props.getUsers(props.currentPage, props.pageSize)
-       /* return ()=>{
-            props.clearStore()
-        }*/
+
     }, [])
 
     const onPageChanged = (pageNumber) => {

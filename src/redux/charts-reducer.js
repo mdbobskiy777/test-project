@@ -39,8 +39,8 @@ const setChartData = (data) => ({type: SET_CHARTS_DATA, data})
 const setFullName = (fullName) => ({type: SET_FULL_NAME, fullName})
 export const clearStore = () => ({type: CLEAR_STORE})
 
-export const getUserData = (userId) => async dispatch => {
-    let userData = await usersAPI.getUser(userId)
+export const getUserData = (userId, from, to) => async dispatch => {
+    let userData = await usersAPI.getUser(userId,from, to)
     let mappedData = mapData(userData.user)
     dispatch(setChartData(mappedData))
     dispatch(setFullName(userData.fullName))

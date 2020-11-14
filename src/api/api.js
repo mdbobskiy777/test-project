@@ -11,8 +11,8 @@ export const userAPI = {
                 return response.data;
             });
     },
-    getUser(userId) {
-        return instance.get(`user?id=${userId}`)
+    getUser(userId, from='', to='') {
+        return instance.get(`user?id=${userId}&from=${from}&to=${to}`)
             .then(response => {
                 return response.data;
             });

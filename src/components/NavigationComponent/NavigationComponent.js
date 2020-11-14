@@ -6,20 +6,19 @@ import {compose} from "redux";
 import {clearStore} from "../../redux/statistic-reducer";
 
 const NavigationComponent = ({navItems, navLinks, ...props}) => {
-    debugger
     const onClick = () => {
         props.clearStore()
     }
     const getItems = (navItems) => {
-         let items = navItems.filter(e=>e!=='')
-         items = items.slice(0, items.length - 1)
-         items = items.map((i, n) => {
+        let items = navItems.filter(e => e !== '')
+        items = items.slice(0, items.length - 1)
+        items = items.map((i, n) => {
             return <span onClick={(n === 0) ? onClick : null}
                          className={(props.location.pathname === "/") ? S.notVisible : " "}><NavLink
                 to={navLinks[n]}><span>{i}</span></NavLink><span>{">"}</span></span>
         })
-        items.push(<span className={(props.location.pathname === "/") ? S.notVisible : " "}><NavLink
-            to={navLinks[items.length]}><span>{navItems[items.length]}</span></NavLink></span>
+        items.push(<span
+            className={(props.location.pathname === "/") ? S.notVisible : " "}><span>{navItems[items.length]}</span></span>
         )
         return items
     }

@@ -1,6 +1,6 @@
 import React from "react"
 import UsersTable from "./UsersTable";
-import NavigationComponent from "./NavigationComponent";
+import NavigationComponent from "../NavigationComponent/NavigationComponent";
 import Pagination from "../common/Pagination/Pagination";
 import s from "./userStatistic.module.css"
 
