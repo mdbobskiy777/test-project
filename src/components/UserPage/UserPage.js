@@ -9,18 +9,27 @@ const UserPage = (props) => {
         [props.chartsData.labels.length - 1])
     const datesList = props.totalDates
     const [dates, setDates] = useState(props.totalDates)
-
+    const [isCorrect, setIsCorrect] = useState(true)
+    const [chooseMode, setChooseMode] = useState(false)
     useEffect(() => {
         setDates(props.totalDates)
     }, [props.totalDates])
+
+    useEffect(() => {
+        checkCorrectDates(first, last)
+    }, [first, last])
 
     useEffect(() => {
         setFirst(props.chartsData.labels[0])
         setLast(props.chartsData.labels[props.chartsData.labels.length - 1])
     }, [props.chartsData.labels])
 
-    const [chooseMode, setChooseMode] = useState(false)
-    const onInputChange = () => {
+    const checkCorrectDates = (first, last) => {
+        const from = Date.parse(first)
+        const to = Date.parse(last)
+        const bool = (from < to)
+        debugger
+        setIsCorrect(bool)
     }
     const getDates = (dates, setDate) => {
         return dates.map(e => {
@@ -50,14 +59,19 @@ const UserPage = (props) => {
             <div><h1>{props.fullName}</h1></div>
             <div className={s.chooseItem}>
                 {(chooseMode) ?
-                    <div onChange={onInputChange}>
-                        {createDropDown("from " + first, dates)}
-                        {createDropDown("to " + last, dates)}
-                        <button onClick={() => {
-                            setChooseMode(false)
-                            props.getUserData(props.match.params.id, first, last)
-                        }} className="btn btn-warning">close
-                        </button>
+                    <div>
+                        <div>
+                            {createDropDown("from " + first, dates)}
+                            {createDropDown("to " + last, dates)}
+                            <button onClick={() => {
+                                if (isCorrect === true) {
+                                    setChooseMode(false)
+                                    props.getUserData(props.match.params.id, first, last)
+                                }
+                            }} className="btn btn-warning">close
+                            </button>
+                        </div>
+                        {isCorrect ? null : <span>SET CORRECT DATES PERIOD</span>}
                     </div>
                     : <div onDoubleClick={() => {
                         setChooseMode(true)
