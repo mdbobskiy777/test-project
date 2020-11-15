@@ -7,7 +7,6 @@ const UserPage = (props) => {
     const [first, setFirst] = useState(props.chartsData.labels[0])
     const [last, setLast] = useState(props.chartsData.labels
         [props.chartsData.labels.length - 1])
-    const datesList = props.totalDates
     const [dates, setDates] = useState(props.totalDates)
     const [isCorrect, setIsCorrect] = useState(true)
     const [chooseMode, setChooseMode] = useState(false)
