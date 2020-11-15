@@ -27,9 +27,7 @@ const UserPage = (props) => {
     const checkCorrectDates = (first, last) => {
         const from = Date.parse(first)
         const to = Date.parse(last)
-        const bool = (from < to)
-        debugger
-        setIsCorrect(bool)
+        setIsCorrect(from < to)
     }
     const getDates = (dates, setDate) => {
         return dates.map(e => {
@@ -76,7 +74,7 @@ const UserPage = (props) => {
                     : <div onDoubleClick={() => {
                         setChooseMode(true)
                     }}>Statistics from {first} to {last}
-                        <div>(DOUBLE CLICK TO CHANGE DATES)</div>
+                        <div>(DOUBLE CLICK TO CHANGE DATES PERIOD)</div>
                     </div>
                 }
             </div>

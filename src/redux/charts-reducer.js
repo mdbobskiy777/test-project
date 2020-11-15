@@ -29,7 +29,6 @@ let mapData = (chartData) => {
     let labels = chartData.map(el => {
         return el.date
     })
-    console.log(labels)
     let page_views = chartData.map(el => {
         return el.page_views
     })
@@ -46,7 +45,6 @@ export const clearStore = () => ({type: CLEAR_STORE})
 
 export const getUserData = (userId, from, to) => async dispatch => {
     let userData = await usersAPI.getUser(userId, from, to)
-    console.log(userData)
     let mappedData = mapData(userData.user)
     dispatch(setChartData(mappedData))
     dispatch(setFullName(userData.fullName))

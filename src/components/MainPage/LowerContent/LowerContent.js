@@ -11,7 +11,7 @@ const LowerContent = () => {
             <TextBanner/>
             <div className={s.content}>
                 {
-                    infoItemsList.map(item => (<InfoItem src={item.img}
+                    infoItemsList.map((item,i) => (<InfoItem key =  {i} src={item.img}
                                                          title={item.title}
                                                          text={item.text}/>))
                 }
