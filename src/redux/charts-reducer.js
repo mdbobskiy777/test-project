@@ -8,32 +8,7 @@ const CLEAR_STORE = "charts-reducer/CLEAR_STORE"
 let initialState = {
     chartsData: null,
     fullName: "",
-    totalDates: [
-        "2019-10-07",
-        "2019-10-08",
-        "2019-10-09",
-        "2019-10-10",
-        "2019-10-11",
-        "2019-10-12",
-        "2019-10-13",
-        "2019-10-14",
-        "2019-10-15",
-        "2019-10-16",
-        "2019-10-17",
-        "2019-10-18",
-        "2019-10-19",
-        "2019-10-20",
-        "2019-10-21",
-        "2019-10-22",
-        "2019-10-23",
-        "2019-10-24",
-        "2019-10-25",
-        "2019-10-26",
-        "2019-10-27",
-        "2019-10-28",
-        "2019-10-29",
-        "2019-10-30"
-    ]
+    totalDates: []
 }
 const chartsReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -71,11 +46,10 @@ export const clearStore = () => ({type: CLEAR_STORE})
 
 export const getUserData = (userId, from, to) => async dispatch => {
     let userData = await usersAPI.getUser(userId, from, to)
+    console.log(userData)
     let mappedData = mapData(userData.user)
     dispatch(setChartData(mappedData))
     dispatch(setFullName(userData.fullName))
-/*
     dispatch(setTotalDates(userData.totalDates))
-*/
 }
 export default chartsReducer

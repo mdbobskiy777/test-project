@@ -3,12 +3,22 @@ import ChartComponent from "./ChartComponent";
 import s from "./userPage.module.css"
 
 const UserPage = (props) => {
+
     const [first, setFirst] = useState(props.chartsData.labels[0])
     const [last, setLast] = useState(props.chartsData.labels
         [props.chartsData.labels.length - 1])
-
+    const datesList = props.totalDates
     const [dates, setDates] = useState(props.totalDates)
 
+    useEffect(()=>{
+        setDates(props.totalDates)
+    },[props.totalDates])
+
+  /*  useEffect(
+        ()=>{
+            setDates(datesList.filter())
+        },[first,last]
+    )*/
     useEffect(() => {
         setFirst(props.chartsData.labels[0])
         setLast(props.chartsData.labels[props.chartsData.labels.length - 1])

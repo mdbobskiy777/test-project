@@ -1,4 +1,3 @@
-import './App.css';
 import React, {Suspense} from "react";
 import Header from "./components/Header/Header";
 import MainPage from "./components/MainPage/MainPage";
