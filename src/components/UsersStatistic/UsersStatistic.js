@@ -1,6 +1,6 @@
 import React from "react"
 import UsersTable from "./UsersTable"
-import Pagination from "../common/Pagination/Pagination"
+import Pagination from "components/common/Pagination/Pagination"
 import s from "./userStatistic.module.css"
 
 const UsersStatistic = (props) => {

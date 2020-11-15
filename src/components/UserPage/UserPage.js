@@ -61,7 +61,9 @@ const UserPage = (props) => {
                     </div>
                     : <div onDoubleClick={() => {
                         setChooseMode(true)
-                    }}>Statistics from {first} to {last}</div>
+                    }}>Statistics from {first} to {last}
+                        <div>(DOUBLE CLICK TO CHANGE DATES)</div>
+                    </div>
                 }
             </div>
             <ChartComponent labels={props.chartsData.labels}

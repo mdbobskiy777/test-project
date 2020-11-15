@@ -1,8 +1,8 @@
 import React, {useEffect} from "react"
 import {connect} from "react-redux"
-import {clearStore, getUserData} from "../../redux/charts-reducer"
+import {clearStore, getUserData} from "redux/charts-reducer"
 import UserPage from "./UserPage"
-import Preloader from "../common/Preloader/Preloader"
+import Preloader from "components/common/Preloader/Preloader"
 import {compose} from "redux";
 import {withRouter} from "react-router"
 

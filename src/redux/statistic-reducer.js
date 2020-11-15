@@ -1,4 +1,4 @@
-import {userAPI as usersAPI} from "../api/api"
+import {userAPI as usersAPI} from "api/api"
 
 const SET_USERS_SUCCESS = "statistic-reducer/SET_USERS_SUCCESS"
 const SET_TOTAL_USERS_COUNT = 'statistic-reducer/SET_TOTAL_USERS_COUNT'

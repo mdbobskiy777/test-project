@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import {NavLink, withRouter} from "react-router-dom"
 import S from "./navigation.module.css"
 import {compose} from "redux"
-import {clearStore} from "../../redux/statistic-reducer"
+import {clearStore} from "redux/statistic-reducer"
 
 const NavigationComponent = ({navItems, navLinks, ...props}) => {
     const onClick = () => {

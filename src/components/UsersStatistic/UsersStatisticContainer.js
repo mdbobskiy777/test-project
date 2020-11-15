@@ -2,8 +2,8 @@ import React, {useEffect} from "react"
 import {compose} from "redux"
 import {withRouter} from "react-router-dom"
 import {connect} from "react-redux"
-import {getUsers, setCurrentPage} from "../../redux/statistic-reducer"
-import Preloader from "../common/Preloader/Preloader"
+import {getUsers, setCurrentPage} from "redux/statistic-reducer"
+import Preloader from "components/common/Preloader/Preloader"
 import UsersStatistic from "./UsersStatistic"
 
 const UsersStatisticContainer = (props) => {
