@@ -4,11 +4,16 @@ import s from "./userPage.module.css"
 
 const UserPage = (props) => {
     const [first, setFirst] = useState(props.chartsData.labels[0])
-    const [last, setLast] = useState(props.chartsData.labels[props.chartsData.labels.length - 1])
+    const [last, setLast] = useState(props.chartsData.labels
+        [props.chartsData.labels.length - 1])
+
+    const [dates, setDates] = useState(props.totalDates)
+
     useEffect(() => {
         setFirst(props.chartsData.labels[0])
         setLast(props.chartsData.labels[props.chartsData.labels.length - 1])
     }, [props.chartsData.labels])
+
     const [chooseMode, setChooseMode] = useState(false)
     const onInputChange = () => {
     }
@@ -34,14 +39,14 @@ const UserPage = (props) => {
             </ul>
         </span>
     }
-debugger
+    debugger
     return <div>
         <div><h1>{props.fullName}</h1></div>
         <div className={s.chooseItem}>
             {(chooseMode) ?
                 <div onChange={onInputChange}>
-                    {createDropDown("from " + first, props.chartsData.labels)}
-                    {createDropDown("to " + last, props.chartsData.labels)}
+                    {createDropDown("from " + first, dates)}
+                    {createDropDown("to " + last, dates)}
                     <button onClick={() => {
                         setChooseMode(false)
                         debugger

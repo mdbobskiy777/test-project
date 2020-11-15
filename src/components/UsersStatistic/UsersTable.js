@@ -25,9 +25,9 @@ const UsersTable = ({users}={}) => {
                            headerAlign="center">Gender</TableHeaderColumn>
         <TableHeaderColumn dataField="ip_address" dataAlign='center'
                            headerAlign="center">IP adress</TableHeaderColumn>
-        <TableHeaderColumn dataField="clicks" dataAlign='center'
+        <TableHeaderColumn dataField="total_clicks" dataAlign='center'
                            headerAlign="center">Total Clicks</TableHeaderColumn>
-        <TableHeaderColumn dataField="page_views" dataAlign='center'
+        <TableHeaderColumn dataField="total_views" dataAlign='center'
                            headerAlign="center">Total page views</TableHeaderColumn>
     </BootstrapTable>
 }

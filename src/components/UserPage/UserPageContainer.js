@@ -21,7 +21,8 @@ const UserPageContainer = (props) => {
 }
 const mapStateToProps = state => ({
     chartsData: state.chartsPage.chartsData,
-    fullName: state.chartsPage.fullName
+    fullName: state.chartsPage.fullName,
+    totalDates: state.chartsPage.totalDates
 })
 
 export default compose(
