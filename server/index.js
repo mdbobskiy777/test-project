@@ -49,8 +49,9 @@ app.get('/user',
         AS totalDates FROM users 
         INNER JOIN users_statistics ON 
         users.id = users_statistics.user_id WHERE id =${request.query.id}`).all()
-        totalDates = geArrays(totalDates,"totalDates")
 
+        totalDates = geArrays(totalDates,"totalDates")
+        console.log(totalDates)
         let row
         if (!request.query.from && !request.query.to) {
 
