@@ -30,8 +30,8 @@ const UserPage = (props) => {
         setIsCorrect(from < to)
     }
     const getDates = (dates, setDate) => {
-        return dates.map(e => {
-            return <li onClick={() => {
+        return dates.map((e,i) => {
+            return <li key={i} onClick={() => {
                 setDate(e)
             }} role="presentation"><a role="menuitem" tabIndex="-1">{e}</a></li>
         })
