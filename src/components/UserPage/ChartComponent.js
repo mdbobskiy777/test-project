@@ -1,6 +1,6 @@
 import React from "react";
-import {Line} from "react-chartjs-2";
-import {MDBContainer} from "mdbreact";
+import {Line} from "react-chartjs-2"
+import {MDBContainer} from "mdbreact"
 
 class ChartComponent extends React.Component {
     constructor(props) {
@@ -71,7 +71,7 @@ class ChartComponent extends React.Component {
                 <h3 className="mt-5">{this.props.label}</h3>
                 <Line data={this.reloadData()} options={{responsive: true}}/>
             </MDBContainer>
-        );
+        )
     }
 }
 

@@ -1,10 +1,10 @@
 import React, {useEffect} from "react"
-import {connect} from "react-redux";
-import {clearStore, getUserData} from "../../redux/charts-reducer";
-import UserPage from "./UserPage";
-import Preloader from "../common/Preloader/Preloader";
+import {connect} from "react-redux"
+import {clearStore, getUserData} from "../../redux/charts-reducer"
+import UserPage from "./UserPage"
+import Preloader from "../common/Preloader/Preloader"
 import {compose} from "redux";
-import {withRouter} from "react-router";
+import {withRouter} from "react-router"
 
 const UserPageContainer = (props) => {
 
@@ -15,9 +15,11 @@ const UserPageContainer = (props) => {
         }
     }, [])
 
-    return <div>
-        {props.chartsData ? <UserPage {...props}/> : <Preloader/>}
-    </div>
+    return (
+        <div>
+            {props.chartsData ? <UserPage {...props}/> : <Preloader/>}
+        </div>
+    )
 }
 const mapStateToProps = state => ({
     chartsData: state.chartsPage.chartsData,

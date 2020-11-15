@@ -1,4 +1,4 @@
-import {userAPI as usersAPI} from "../api/api";
+import {userAPI as usersAPI} from "../api/api"
 
 const SET_CHARTS_DATA = "charts-reducer/SET_CHARTS_DATA"
 const SET_FULL_NAME = "charts-reducer/SET_FULL_NAME"
@@ -52,4 +52,5 @@ export const getUserData = (userId, from, to) => async dispatch => {
     dispatch(setFullName(userData.fullName))
     dispatch(setTotalDates(userData.totalDates))
 }
+
 export default chartsReducer

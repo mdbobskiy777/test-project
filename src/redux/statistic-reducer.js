@@ -31,7 +31,8 @@ const statisticReducer = (state = initialState, action) => {
             return {...state, isFetching: action.isFetching}
         case TOGGLE_IS_FOLLOWING_PROGRESS:
             return {
-                ...state, followingInProgress: action.isFetching ? [...state.followingInProgress, action.id]
+                ...state, followingInProgress: action.isFetching ?
+                    [...state.followingInProgress, action.id]
                     : state.followingInProgress.filter(id => id !== action.id)
             }
         default:
@@ -40,7 +41,8 @@ const statisticReducer = (state = initialState, action) => {
 }
 
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT,
+    count: totalUsersCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const clearStore = () => ({type: CLEAR_STORE})
 

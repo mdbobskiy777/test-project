@@ -1,10 +1,10 @@
 import React, {useEffect} from "react"
-import {compose} from "redux";
-import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
-import {clearStore, getUsers, setCurrentPage} from "../../redux/statistic-reducer";
-import Preloader from "../common/Preloader/Preloader";
-import UsersStatistic from "./UsersStatistic";
+import {compose} from "redux"
+import {withRouter} from "react-router-dom"
+import {connect} from "react-redux"
+import {getUsers, setCurrentPage} from "../../redux/statistic-reducer"
+import Preloader from "../common/Preloader/Preloader"
+import UsersStatistic from "./UsersStatistic"
 
 const UsersStatisticContainer = (props) => {
     useEffect(() => {
@@ -16,14 +16,16 @@ const UsersStatisticContainer = (props) => {
         props.setCurrentPage(pageNumber)
         props.getUsers(pageNumber, props.pageSize)
     }
-    return <div>
+    return (
         <div>
-            {props.isFetching?<Preloader/>:null}
+            <div>
+                {props.isFetching ? <Preloader/> : null}
+            </div>
+            <div>
+                <UsersStatistic {...props} onPageChanged={onPageChanged}/>
+            </div>
         </div>
-        <div>
-            <UsersStatistic {...props} onPageChanged = {onPageChanged}/>
-        </div>
-    </div>
+    )
 }
 const mapStateToProps = state => ({
     users: state.usersPage.users,
@@ -33,6 +35,7 @@ const mapStateToProps = state => ({
     isFetching: state.usersPage.isFetching,
     followingInProgress: state.usersPage.followingInProgress
 })
+
 export default compose(
     connect(mapStateToProps, {getUsers, setCurrentPage}),
     withRouter)(UsersStatisticContainer)

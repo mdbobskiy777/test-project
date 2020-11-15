@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import ChartComponent from "./ChartComponent";
+import ChartComponent from "./ChartComponent"
 import s from "./userPage.module.css"
 
 const UserPage = (props) => {
@@ -10,15 +10,10 @@ const UserPage = (props) => {
     const datesList = props.totalDates
     const [dates, setDates] = useState(props.totalDates)
 
-    useEffect(()=>{
+    useEffect(() => {
         setDates(props.totalDates)
-    },[props.totalDates])
+    }, [props.totalDates])
 
-  /*  useEffect(
-        ()=>{
-            setDates(datesList.filter())
-        },[first,last]
-    )*/
     useEffect(() => {
         setFirst(props.chartsData.labels[0])
         setLast(props.chartsData.labels[props.chartsData.labels.length - 1])
@@ -49,34 +44,35 @@ const UserPage = (props) => {
             </ul>
         </span>
     }
-    debugger
-    return <div>
-        <div><h1>{props.fullName}</h1></div>
-        <div className={s.chooseItem}>
-            {(chooseMode) ?
-                <div onChange={onInputChange}>
-                    {createDropDown("from " + first, dates)}
-                    {createDropDown("to " + last, dates)}
-                    <button onClick={() => {
-                        setChooseMode(false)
-                        debugger
-                        props.getUserData(props.match.params.id, first, last)
-                    }} className="btn btn-warning">close
-                    </button>
-                </div>
-                : <div onDoubleClick={() => {
-                    setChooseMode(true)
-                }}>Statistics from {first} to {last}</div>
-            }
+
+    return (
+        <div>
+            <div><h1>{props.fullName}</h1></div>
+            <div className={s.chooseItem}>
+                {(chooseMode) ?
+                    <div onChange={onInputChange}>
+                        {createDropDown("from " + first, dates)}
+                        {createDropDown("to " + last, dates)}
+                        <button onClick={() => {
+                            setChooseMode(false)
+                            props.getUserData(props.match.params.id, first, last)
+                        }} className="btn btn-warning">close
+                        </button>
+                    </div>
+                    : <div onDoubleClick={() => {
+                        setChooseMode(true)
+                    }}>Statistics from {first} to {last}</div>
+                }
+            </div>
+            <ChartComponent labels={props.chartsData.labels}
+                            data={props.chartsData.clicks}
+                            label={"clicks"}/>
+            <ChartComponent labels={props.chartsData.labels}
+                            data={props.chartsData.page_views}
+                            label={"views"}
+            />
         </div>
-        <ChartComponent labels={props.chartsData.labels}
-                        data={props.chartsData.clicks}
-                        label={"clicks"}/>
-        <ChartComponent labels={props.chartsData.labels}
-                        data={props.chartsData.page_views}
-                        label={"views"}
-        />
-    </div>
+    )
 }
 
 export default UserPage
