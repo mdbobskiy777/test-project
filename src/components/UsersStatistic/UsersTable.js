@@ -2,32 +2,32 @@ import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 import {useHistory} from "react-router-dom";
 import React from "react";
 
-const UsersTable = ({products}) => {
+const UsersTable = ({users}={}) => {
     let history = useHistory();
     const options = {
         onRowClick: (row) => {
             history.push(`/user/${row.id}`);
         }
     }
-    return <BootstrapTable data={products} striped={true} hover={true} options={options}>
+    return <BootstrapTable data={users} striped={true} hover={true} options={options}>
         <TableHeaderColumn dataField="id" isKey={true}
                            dataAlign='center'
                            headerAlign="left"
                            width="30">id</TableHeaderColumn>
-        <TableHeaderColumn dataField="firstName"
+        <TableHeaderColumn dataField="first_name"
                            dataAlign='center'
                            headerAlign="center">First Name</TableHeaderColumn>
-        <TableHeaderColumn dataField="lastName" dataAlign='center'
+        <TableHeaderColumn dataField="last_name" dataAlign='center'
                            headerAlign="center">Last Name</TableHeaderColumn>
         <TableHeaderColumn dataField="email" dataAlign='center'
                            headerAlign="center">Email</TableHeaderColumn>
         <TableHeaderColumn dataField="gender" dataAlign='center'
                            headerAlign="center">Gender</TableHeaderColumn>
-        <TableHeaderColumn dataField="ip" dataAlign='center'
+        <TableHeaderColumn dataField="ip_address" dataAlign='center'
                            headerAlign="center">IP adress</TableHeaderColumn>
-        <TableHeaderColumn dataField="clicks" dataAlign='center'
+        <TableHeaderColumn dataField="total_clicks" dataAlign='center'
                            headerAlign="center">Total Clicks</TableHeaderColumn>
-        <TableHeaderColumn dataField="views" dataAlign='center'
+        <TableHeaderColumn dataField="total_views" dataAlign='center'
                            headerAlign="center">Total page views</TableHeaderColumn>
     </BootstrapTable>
 }
