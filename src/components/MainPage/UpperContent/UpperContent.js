@@ -1,4 +1,4 @@
-import s from "../mainPage.module.css"
+import s from "../mainPage.module.scss"
 import React from "react"
 import InfoBanner from "./InfoBanner"
 import imagePhone from "assets/images/iPhoneX.png"

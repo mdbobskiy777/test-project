@@ -4,7 +4,7 @@ import s from "./upperContent.module.scss"
 const InfoBanner = () => {
     return (
         <div className={s.textBanner}>
-            <div className={s.text}><span style={{fontWeight:"bold"}}>Brainstorming </span>for desired perfect Usability</div>
+            <div className={s.text}><span className={s.boldText}>Brainstorming </span>for desired perfect Usability</div>
             <div><span className={s.lowerText}>Our design projects are fresh and simple and will
                 benefit your business greatly. Learn more about our work!</span></div>
             <div>

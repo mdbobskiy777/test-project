@@ -16,19 +16,8 @@
 }
 
 .selectedPage {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
     color: white;
     background: #3A80BA;
-    width: 48px;
-    height: 48px;
-}
-
-.permanentButtons {
-    background-color: lightgray;
 }
 
 .arrow {
@@ -36,9 +25,7 @@
     margin-right: 24px;
     margin-left: 24px;
 }
-.arrowContainer{
 
-}
 .arrow:focus, input:focus {
     outline: none;
 }

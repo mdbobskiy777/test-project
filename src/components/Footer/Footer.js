@@ -8,7 +8,7 @@ const Footer = (props) => {
     return (
         <div
             className={(props.location.pathname === "/mainPage" || props.location.pathname === "/") ?
-                s.contentMain : s.content}>
+                s.contentMain : `${s.contentMain} ${s.content}`}>
             <div>
                 <img src={logo}/>
             </div>

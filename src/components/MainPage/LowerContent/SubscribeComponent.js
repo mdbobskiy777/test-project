@@ -1,6 +1,6 @@
 import React from "react"
 import s from "./subscribeBunner.module.scss"
-import background from "../../../assets/images/Rectangle54.png";
+import background from "assets/images/Rectangle54.png";
 
 const SubscribeComponent = () => {
     return (

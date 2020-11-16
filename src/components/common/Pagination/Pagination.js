@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import s from "./pagination.module.css"
+import s from "./pagination.module.scss"
 import {fillArrayWithNumbers} from "helpers"
 import img from "assets/images/Line 9.png";
 
@@ -32,7 +32,7 @@ let Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portio
                                    onPageChanged(p);
                                }}>{p}</button>
             })}
-        {portionNumber < portionCount && <span className={s.arrowContainer}><input className={s.arrow} type={"image"} src={img} onClick={() => {
+        {portionNumber < portionCount && <span><input className={s.arrow} type={"image"} src={img} onClick={() => {
             setPortionNumber(portionNumber + 1)
             onPageChanged(setCurrentElementInPortion(portionNumber + 1))
         }}/></span>}

@@ -1,5 +1,5 @@
 import React from "react"
-import S from "./infoBanner.module.css"
+import S from "./textBanner.module.scss"
 
 const TextBanner = () => {
     return (

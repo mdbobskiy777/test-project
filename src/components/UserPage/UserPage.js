@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import ChartComponent from "./ChartComponent"
-import s from "./userPage.module.css"
+import s from "./userPage.module.scss"
 
 const UserPage = (props) => {
 

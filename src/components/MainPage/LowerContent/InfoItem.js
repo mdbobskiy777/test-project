@@ -1,5 +1,5 @@
 import React from "react"
-import S from "./infoItem.module.css"
+import S from "./infoItem.module.scss"
 
 const InfoItem = ({src, title, text}) => {
     return (

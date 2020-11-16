@@ -1,4 +1,4 @@
-import s from "./lowerContent.module.css"
+import s from "./lowerContent.module.scss"
 import React from "react"
 import InfoItem from "./InfoItem"
 import TextBanner from "./TextBanner";
