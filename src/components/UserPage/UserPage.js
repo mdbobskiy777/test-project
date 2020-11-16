@@ -29,7 +29,7 @@ const UserPage = (props) => {
         setIsCorrect(from < to)
     }
     const getDates = (dates, setDate) => {
-        return dates.map((e,i) => {
+        return dates.map((e, i) => {
             return <li key={i} onClick={() => {
                 setDate(e)
             }} role="presentation"><a role="menuitem" tabIndex="-1">{e}</a></li>
@@ -53,7 +53,7 @@ const UserPage = (props) => {
 
     return (
         <div>
-            <div><h1>{props.fullName}</h1></div>
+            <div className={s.title}><h1>{props.fullName}</h1></div>
             <div className={s.chooseItem}>
                 {(chooseMode) ?
                     <div>
@@ -65,15 +65,21 @@ const UserPage = (props) => {
                                     setChooseMode(false)
                                     props.getUserData(props.match.params.id, first, last)
                                 }
-                            }} className="btn btn-warning">close
+                            }} className="btn btn-warning">set new period
                             </button>
                         </div>
                         {isCorrect ? null : <span>SET CORRECT DATES PERIOD</span>}
                     </div>
-                    : <div onDoubleClick={() => {
+                    : <div className={s.info} onDoubleClick={() => {
                         setChooseMode(true)
                     }}>Statistics from {first} to {last}
-                        <div>(DOUBLE CLICK TO CHANGE DATES PERIOD)</div>
+                        <div style={
+                            {
+                                fontWeight: "normal",
+                                fontSize: "14px",
+                                color: "#CCCCCC"
+                            }}>(DOUBLE CLICK TO CHANGE DATES PERIOD)
+                        </div>
                     </div>
                 }
             </div>

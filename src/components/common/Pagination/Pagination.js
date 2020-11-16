@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import s from "./pagination.module.css"
 import {fillArrayWithNumbers} from "helpers"
 
-let Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize}) => {
-    let currentPortion = Math.ceil(currentPage/portionSize)
+let Pagination = ({paginationStyle, totalItemsCount, pageSize, currentPage, onPageChanged, portionSize}) => {
+    let currentPortion = Math.ceil(currentPage / portionSize)
     let pagesCount = Math.ceil(totalItemsCount / pageSize)
     let pages = fillArrayWithNumbers(pagesCount)
     let portionCount = Math.ceil(pagesCount / portionSize)
@@ -16,23 +16,28 @@ let Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portio
     }
 
     return <div>
-        {portionNumber > 1 && <button onClick={() => {
+        {portionNumber > 1 && <input type={"image"} src={paginationStyle.img} style={{
+            transform: paginationStyle.transform
+        }} onClick={() => {
             setPortionNumber(portionNumber - 1)
             onPageChanged(setCurrentElementInPortion(portionNumber - 1))
-        }}>PREV</button>}
+        }}/>}
         {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionNumber)
             .map((p, i) => {
-                return <span key={i}
+                return <span style={{
+                    background: 'paginationStyle.background',
+                    borderRadius: paginationStyle.borderRadius
+                }} key={i}
                              className={s.pagesItems + " " + ((currentPage === p) && s.selectedPage).toString()}
                              onClick={(e) => {
                                  onPageChanged(p);
                              }}>{p}</span>
             })}
-        {portionNumber < portionCount && <button onClick={() => {
+        {portionNumber < portionCount && <input type={"image"} src={paginationStyle.img} onClick={() => {
             setPortionNumber(portionNumber + 1)
             onPageChanged(setCurrentElementInPortion(portionNumber + 1))
-        }}>NEXT</button>}
+        }}/>}
     </div>
 }
 

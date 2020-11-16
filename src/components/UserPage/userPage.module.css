@@ -1,4 +1,22 @@
-.chooseItem{
+.chooseItem {
     text-align: center;
-    min-height: 60px;
+    min-height: 100px;
+    margin: 0 auto;
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 39px;
+    color: #1A1A1A;
+    margin-left: 130px;
+}
+.info{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 39px;
+    color: #1A1A1A;
+    margin-left: 130px;
 }

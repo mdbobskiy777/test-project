@@ -1,3 +1,12 @@
+.title{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 39px;
+    color: #1A1A1A;
+    margin-left: 130px;
+    margin-bottom: 16px;
+}
 .pagination{
     text-align: center;
     padding: 10px;
