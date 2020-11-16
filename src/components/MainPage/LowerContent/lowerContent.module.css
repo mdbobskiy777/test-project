@@ -1,0 +1,10 @@
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.subscribeContent {
+    text-align: center;
+    padding-top:154px;
+
+}

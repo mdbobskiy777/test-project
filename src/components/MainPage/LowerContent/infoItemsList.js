@@ -1,6 +1,6 @@
 import img1 from "assets/images/Group 13.png"
-import img2 from "assets/images/Group 14.png"
-import img3 from "assets/images/Group 15.png"
+import img2 from "assets/images/Group 15.png"
+import img3 from "assets/images/Group 14.png"
 
 const list = [{
     img: img1,

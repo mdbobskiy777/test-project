@@ -1,4 +1,9 @@
 .content{
+    min-height: 590px;
+}
+.bannerContent{
     display: flex;
     justify-content: space-around;
+    margin-right: 230px;
+    margin-left: 130px;
 }

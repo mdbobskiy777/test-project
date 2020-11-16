@@ -1,4 +1,7 @@
 .headerContainer{
-    background-color: #3A80BA;
-    padding: 20px 0 10px 100px;
+    background: linear-gradient(90.95deg, #255D8B 2.29%, #3A80BA 96.79%);
+}
+.content{
+
+    padding: 24px 0 10px 136px;
 }
