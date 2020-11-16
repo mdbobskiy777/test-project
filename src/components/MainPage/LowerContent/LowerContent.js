@@ -1,4 +1,4 @@
-import s from "../lowerContent.module.css"
+import s from "./lowerContent.module.scss"
 import React from "react"
 import InfoItem from "./InfoItem"
 import TextBanner from "./TextBanner";
@@ -11,7 +11,7 @@ const LowerContent = () => {
             <TextBanner/>
             <div className={s.content}>
                 {
-                    infoItemsList.map(item => (<InfoItem src={item.img}
+                    infoItemsList.map((item,i) => (<InfoItem key =  {i} src={item.img}
                                                          title={item.title}
                                                          text={item.text}/>))
                 }

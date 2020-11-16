@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react"
 import ChartComponent from "./ChartComponent"
-import s from "./userPage.module.css"
+import s from "./userPage.module.scss"
 
 const UserPage = (props) => {
 
     const [first, setFirst] = useState(props.chartsData.labels[0])
     const [last, setLast] = useState(props.chartsData.labels
         [props.chartsData.labels.length - 1])
-    const datesList = props.totalDates
     const [dates, setDates] = useState(props.totalDates)
     const [isCorrect, setIsCorrect] = useState(true)
     const [chooseMode, setChooseMode] = useState(false)
@@ -27,20 +26,18 @@ const UserPage = (props) => {
     const checkCorrectDates = (first, last) => {
         const from = Date.parse(first)
         const to = Date.parse(last)
-        const bool = (from < to)
-        debugger
-        setIsCorrect(bool)
+        setIsCorrect(from < to)
     }
     const getDates = (dates, setDate) => {
-        return dates.map(e => {
-            return <li onClick={() => {
+        return dates.map((e, i) => {
+            return <li key={i} onClick={() => {
                 setDate(e)
             }} role="presentation"><a role="menuitem" tabIndex="-1">{e}</a></li>
         })
     }
     const createDropDown = (label, dates) => {
         return <span className="dropdown">
-            <button className="btn btn-default dropdown-toggle"
+            <button className="btn btn-secondary dropdown-toggle"
                     type="button"
                     id="dropdownMenu1"
                     data-toggle="dropdown" aria-expanded="true">
@@ -56,7 +53,7 @@ const UserPage = (props) => {
 
     return (
         <div>
-            <div><h1>{props.fullName}</h1></div>
+            <div className={s.title}><h1>{props.fullName}</h1></div>
             <div className={s.chooseItem}>
                 {(chooseMode) ?
                     <div>
@@ -68,25 +65,33 @@ const UserPage = (props) => {
                                     setChooseMode(false)
                                     props.getUserData(props.match.params.id, first, last)
                                 }
-                            }} className="btn btn-warning">close
+                            }} className="btn btn-primary">Change dates
                             </button>
                         </div>
-                        {isCorrect ? null : <span>SET CORRECT DATES PERIOD</span>}
+                        {isCorrect ? null : <span className={s.warning}>SET CORRECT DATES PERIOD</span>}
                     </div>
-                    : <div onDoubleClick={() => {
+                    : <div className={s.info} onDoubleClick={() => {
                         setChooseMode(true)
                     }}>Statistics from {first} to {last}
-                        <div>(DOUBLE CLICK TO CHANGE DATES)</div>
+                        <div style={
+                            {
+                                fontWeight: "normal",
+                                fontSize: "14px",
+                                color: "#CCCCCC"
+                            }}>(DOUBLE CLICK TO CHANGE DATES PERIOD)
+                        </div>
                     </div>
                 }
             </div>
-            <ChartComponent labels={props.chartsData.labels}
-                            data={props.chartsData.clicks}
-                            label={"clicks"}/>
-            <ChartComponent labels={props.chartsData.labels}
-                            data={props.chartsData.page_views}
-                            label={"views"}
-            />
+            <div className={s.chartsContainer}>
+                <ChartComponent labels={props.chartsData.labels}
+                                data={props.chartsData.clicks}
+                                label={"clicks"}/>
+                <ChartComponent labels={props.chartsData.labels}
+                                data={props.chartsData.page_views}
+                                label={"views"}
+                />
+            </div>
         </div>
     )
 }

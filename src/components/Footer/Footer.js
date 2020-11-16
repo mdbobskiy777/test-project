@@ -1,10 +1,14 @@
 import React from "react"
 import s from "./footer.module.scss"
 import logo from "assets/images/AppCo.png"
+import {compose} from "redux";
+import {withRouter} from "react-router";
 
-const Footer = () => {
+const Footer = (props) => {
     return (
-        <div className={s.content}>
+        <div
+            className={(props.location.pathname === "/mainPage" || props.location.pathname === "/") ?
+                s.contentMain : `${s.contentMain} ${s.content}`}>
             <div>
                 <img src={logo}/>
             </div>
@@ -13,4 +17,6 @@ const Footer = () => {
         </div>
     )
 }
-export default Footer
+export default compose(
+    withRouter
+)(Footer)

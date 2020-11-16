@@ -41,7 +41,7 @@ class ChartComponent extends React.Component {
             labels: [...this.props.labels],
             datasets: [
                 {
-                    label: "My First dataset",
+                    label: "Data points",
                     fill: true,
                     lineTension: 0.3,
                     backgroundColor: "rgba(0, 0,0, .0)",

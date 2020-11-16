@@ -10,27 +10,38 @@ const UsersTable = ({users} = {}) => {
         }
     }
     return (
-        <BootstrapTable data={users} striped={true} hover={true} options={options}>
-            <TableHeaderColumn dataField="id" isKey={true}
-                               dataAlign='center'
-                               headerAlign="left"
-                               width="30">id</TableHeaderColumn>
-            <TableHeaderColumn dataField="first_name"
-                               dataAlign='center'
-                               headerAlign="center">First Name</TableHeaderColumn>
-            <TableHeaderColumn dataField="last_name" dataAlign='center'
-                               headerAlign="center">Last Name</TableHeaderColumn>
-            <TableHeaderColumn dataField="email" dataAlign='center'
-                               headerAlign="center">Email</TableHeaderColumn>
-            <TableHeaderColumn dataField="gender" dataAlign='center'
-                               headerAlign="center">Gender</TableHeaderColumn>
-            <TableHeaderColumn dataField="ip_address" dataAlign='center'
-                               headerAlign="center">IP adress</TableHeaderColumn>
-            <TableHeaderColumn dataField="total_clicks" dataAlign='center'
-                               headerAlign="center">Total Clicks</TableHeaderColumn>
-            <TableHeaderColumn dataField="total_views" dataAlign='center'
-                               headerAlign="center">Total page views</TableHeaderColumn>
-        </BootstrapTable>
+        <div style={{maxWidth: "1180px", margin:"0 auto"}}>
+            <BootstrapTable data={users} striped={true} hover={true} options={options}>
+                <TableHeaderColumn dataField="id" isKey={true}
+                                   dataAlign='center'
+                                   headerAlign="left"
+                                   width="30">id</TableHeaderColumn>
+                <TableHeaderColumn dataField="first_name"
+                                   width="112"
+                                   dataAlign='center'
+                                   headerAlign="left"
+                >First Name</TableHeaderColumn>
+                <TableHeaderColumn dataField="last_name" width="112"
+                                   dataAlign='center'
+                                   headerAlign="left"
+                >Last Name</TableHeaderColumn>
+                <TableHeaderColumn dataField="email" width="244"
+                                   dataAlign='center'
+                                   headerAlign="left">Email</TableHeaderColumn>
+                <TableHeaderColumn dataField="gender" width="80"
+                                   dataAlign='center'
+                                   headerAlign="left">Gender</TableHeaderColumn>
+                <TableHeaderColumn dataField="ip_address" width="140"
+                                   dataAlign='center'
+                                   headerAlign="left">IP adress</TableHeaderColumn>
+                <TableHeaderColumn dataField="total_clicks" width="140"
+                                   dataAlign='center'
+                                   headerAlign="left">Total Clicks</TableHeaderColumn>
+                <TableHeaderColumn dataField="total_views" width="180"
+                                   dataAlign='center'
+                                   headerAlign="left">Total page views</TableHeaderColumn>
+            </BootstrapTable>
+        </div>
     )
 }
 

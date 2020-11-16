@@ -1,15 +1,15 @@
 import {NavLink} from "react-router-dom"
 import React from "react"
-
+import s from "./upperContent.module.scss"
 const InfoBanner = () => {
     return (
-        <div>
-            <div><h1>Brainstorming for desired perfect Usability</h1></div>
-            <div><span>Our design projects are fresh and simple and will
+        <div className={s.textBanner}>
+            <div className={s.text}><span className={s.boldText}>Brainstorming </span>for desired perfect Usability</div>
+            <div><span className={s.lowerText}>Our design projects are fresh and simple and will
                 benefit your business greatly. Learn more about our work!</span></div>
             <div>
                 <NavLink to={"/userStatistic"}>
-                    <button>Views stats</button>
+                    <button className={s.button}>Views stats</button>
                 </NavLink>
             </div>
         </div>

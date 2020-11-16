@@ -1,0 +1,28 @@
+.textBanner {
+  max-width: 590px;
+}
+.text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 59px;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  .boldText {
+    font-weight: bold;
+  }
+}
+.lowerText {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  color: #FFFFFF;
+}
+.button {
+  width: 154px;
+  height: 56px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin-top: 32px;
+}

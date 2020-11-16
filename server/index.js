@@ -3,6 +3,9 @@ const app = express()
 const Database = require('better-sqlite3')
 const db = new Database('./database.db', {verbose: console.log})
 
+//db.run("CREATE TABLE IF NOT EXISTS users(id INTEGER...)" is not working with better-sqlite3
+//so, i don`t know how to checks if table exists in better-sqlite3 lib
+
 const geArrays = (array, key) => array.map(obj => obj[key])
 
 app.use(function (req, res, next) {
