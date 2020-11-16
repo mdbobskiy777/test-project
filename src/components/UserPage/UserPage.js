@@ -57,7 +57,7 @@ const UserPage = (props) => {
             <div className={s.chooseItem}>
                 {(chooseMode) ?
                     <div>
-                        <div className={s.buttons}>
+                        <div>
                             {createDropDown("from " + first, dates)}
                             {createDropDown("to " + last, dates)}
                             <button onClick={() => {
