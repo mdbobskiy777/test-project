@@ -1,12 +1,44 @@
-.selectedPage {
-    font-weight: bold;
-}
+
 .pagesItems {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    background: #FFFFFF;
     padding: 2px;
-    background-color: ghostwhite;
-    width: 100px;
-    border: 1px solid gray;
+    border: 2px solid #F1F1F1;
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    margin: 4px;
 }
+
+.selectedPage {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    background: #3A80BA;
+    width: 48px;
+    height: 48px;
+}
+
 .permanentButtons {
     background-color: lightgray;
+}
+
+.arrow {
+    vertical-align: middle;
+    margin-right: 24px;
+    margin-left: 24px;
+}
+.arrowContainer{
+
+}
+.arrow:focus, input:focus {
+    outline: none;
 }

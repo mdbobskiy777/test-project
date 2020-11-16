@@ -1,14 +1,27 @@
+/*@font-face {
+  font-family: Pompadur;
+  src: url(src/assets/fonts)
+}*/
+
+
 .textBanner{
   max-width: 500px;
 }
 .text{
-  font: 1.2em "Fira Sans", sans-serif;
-  color: #FFFFFF;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
   font-size: 48px;
+  line-height: 59px;
+  color: #FFFFFF;
 }
 .smallText{
-  font-weight: 400;
-  font-size: 48px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  color: #FFFFFF;
 }
 .lowerText{
   font-weight: 400;

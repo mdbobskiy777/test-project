@@ -12,11 +12,24 @@
     color: #1A1A1A;
     margin-left: 130px;
 }
-.info{
+
+.info {
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 39px;
     color: #1A1A1A;
-    margin-left: 130px;
+}
+
+.chartsContainer {
+    max-width: 1180px;
+    margin: 50px auto;
+}
+
+.warning {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 39px;
+    color: #ff0000;
 }

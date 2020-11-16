@@ -37,7 +37,7 @@ const UserPage = (props) => {
     }
     const createDropDown = (label, dates) => {
         return <span className="dropdown">
-            <button className="btn btn-default dropdown-toggle"
+            <button className="btn btn-secondary dropdown-toggle"
                     type="button"
                     id="dropdownMenu1"
                     data-toggle="dropdown" aria-expanded="true">
@@ -57,7 +57,7 @@ const UserPage = (props) => {
             <div className={s.chooseItem}>
                 {(chooseMode) ?
                     <div>
-                        <div>
+                        <div className={s.buttons}>
                             {createDropDown("from " + first, dates)}
                             {createDropDown("to " + last, dates)}
                             <button onClick={() => {
@@ -65,10 +65,10 @@ const UserPage = (props) => {
                                     setChooseMode(false)
                                     props.getUserData(props.match.params.id, first, last)
                                 }
-                            }} className="btn btn-warning">set new period
+                            }} className="btn btn-primary">Change dates
                             </button>
                         </div>
-                        {isCorrect ? null : <span>SET CORRECT DATES PERIOD</span>}
+                        {isCorrect ? null : <span className={s.warning}>SET CORRECT DATES PERIOD</span>}
                     </div>
                     : <div className={s.info} onDoubleClick={() => {
                         setChooseMode(true)
@@ -83,13 +83,15 @@ const UserPage = (props) => {
                     </div>
                 }
             </div>
-            <ChartComponent labels={props.chartsData.labels}
-                            data={props.chartsData.clicks}
-                            label={"clicks"}/>
-            <ChartComponent labels={props.chartsData.labels}
-                            data={props.chartsData.page_views}
-                            label={"views"}
-            />
+            <div className={s.chartsContainer}>
+                <ChartComponent labels={props.chartsData.labels}
+                                data={props.chartsData.clicks}
+                                label={"clicks"}/>
+                <ChartComponent labels={props.chartsData.labels}
+                                data={props.chartsData.page_views}
+                                label={"views"}
+                />
+            </div>
         </div>
     )
 }

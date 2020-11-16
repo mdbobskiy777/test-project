@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import s from "./pagination.module.css"
 import {fillArrayWithNumbers} from "helpers"
+import img from "assets/images/Line 9.png";
 
-let Pagination = ({paginationStyle, totalItemsCount, pageSize, currentPage, onPageChanged, portionSize}) => {
+let Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize}) => {
     let currentPortion = Math.ceil(currentPage / portionSize)
     let pagesCount = Math.ceil(totalItemsCount / pageSize)
     let pages = fillArrayWithNumbers(pagesCount)
@@ -16,8 +17,8 @@ let Pagination = ({paginationStyle, totalItemsCount, pageSize, currentPage, onPa
     }
 
     return <div>
-        {portionNumber > 1 && <input type={"image"} src={paginationStyle.img} style={{
-            transform: paginationStyle.transform
+        {portionNumber > 1 && <input className={s.arrow} type={"image"} src={img} style={{
+            transform: "rotate(180deg)"
         }} onClick={() => {
             setPortionNumber(portionNumber - 1)
             onPageChanged(setCurrentElementInPortion(portionNumber - 1))
@@ -25,19 +26,16 @@ let Pagination = ({paginationStyle, totalItemsCount, pageSize, currentPage, onPa
         {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionNumber)
             .map((p, i) => {
-                return <span style={{
-                    background: 'paginationStyle.background',
-                    borderRadius: paginationStyle.borderRadius
-                }} key={i}
-                             className={s.pagesItems + " " + ((currentPage === p) && s.selectedPage).toString()}
-                             onClick={(e) => {
-                                 onPageChanged(p);
-                             }}>{p}</span>
+                return <button key={i}
+                               className={s.pagesItems + " " + ((currentPage === p) && s.selectedPage).toString()}
+                               onClick={(e) => {
+                                   onPageChanged(p);
+                               }}>{p}</button>
             })}
-        {portionNumber < portionCount && <input type={"image"} src={paginationStyle.img} onClick={() => {
+        {portionNumber < portionCount && <span className={s.arrowContainer}><input className={s.arrow} type={"image"} src={img} onClick={() => {
             setPortionNumber(portionNumber + 1)
             onPageChanged(setCurrentElementInPortion(portionNumber + 1))
-        }}/>}
+        }}/></span>}
     </div>
 }
 
